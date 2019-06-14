@@ -1,0 +1,304 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "tf-workspace": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "ea",
+      "schematics": {
+        "@schematics/angular:class": {
+          "spec": false
+        },
+        "@schematics/angular:component": {
+          "spec": false
+        },
+        "@schematics/angular:directive": {
+          "spec": false
+        },
+        "@schematics/angular:guard": {
+          "spec": false
+        },
+        "@schematics/angular:module": {
+          "spec": false
+        },
+        "@schematics/angular:pipe": {
+          "spec": false
+        },
+        "@schematics/angular:service": {
+          "spec": false
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/tf-workspace",
+            "index": "src/index.html",
+            "baseHref": "/dist/tf-base/",
+            "deployUrl": "/dist/tf-base/",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "serviceWorker": true,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "tf-workspace:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tf-workspace:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tf-workspace:build"
+          }
+        }
+      }
+    },
+
+    "tf-base": {
+      "root": "projects/tf-base/",
+      "sourceRoot": "projects/tf-base/src",
+      "projectType": "application",
+      "prefix": "ea",
+      "schematics": {
+        "@schematics/angular:class": {
+          "spec": false
+        },
+        "@schematics/angular:component": {
+          "spec": false
+        },
+        "@schematics/angular:directive": {
+          "spec": false
+        },
+        "@schematics/angular:guard": {
+          "spec": false
+        },
+        "@schematics/angular:module": {
+          "spec": false
+        },
+        "@schematics/angular:pipe": {
+          "spec": false
+        },
+        "@schematics/angular:service": {
+          "spec": false
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/tf-base",
+            "index": "projects/tf-base/src/index.html",
+            "main": "projects/tf-base/src/main.ts",
+            "polyfills": "projects/tf-base/src/polyfills.ts",
+            "tsConfig": "projects/tf-base/tsconfig.app.json",
+            "assets": ["projects/tf-base/src/favicon.ico", "projects/tf-base/src/assets"],
+            "styles": ["projects/tf-base/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/tf-base/src/environments/environment.ts",
+                  "with": "projects/tf-base/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "tf-base:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tf-base:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tf-base:build"
+          }
+        }
+      }
+    },
+
+    "tfl-core": {
+      "root": "projects/tfl-core",
+      "sourceRoot": "projects/tfl-core/src",
+      "projectType": "library",
+      "prefix": "tfl",
+      "schematics": {
+        "@schematics/angular:class": {
+          "spec": false
+        },
+        "@schematics/angular:component": {
+          "spec": false
+        },
+        "@schematics/angular:directive": {
+          "spec": false
+        },
+        "@schematics/angular:guard": {
+          "spec": false
+        },
+        "@schematics/angular:module": {
+          "spec": false
+        },
+        "@schematics/angular:pipe": {
+          "spec": false
+        },
+        "@schematics/angular:service": {
+          "spec": false
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/tfl-core/tsconfig.lib.json",
+            "project": "projects/tfl-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/tfl-core/ng-package.prod.json"
+            }
+          }
+        }
+      }
+    },
+
+    "tfl-toolbox": {
+      "root": "projects/tfl-toolbox",
+      "sourceRoot": "projects/tfl-toolbox/src",
+      "projectType": "library",
+      "prefix": "tfl",
+      "schematics": {
+        "@schematics/angular:class": {
+          "spec": false
+        },
+        "@schematics/angular:component": {
+          "spec": false
+        },
+        "@schematics/angular:directive": {
+          "spec": false
+        },
+        "@schematics/angular:guard": {
+          "spec": false
+        },
+        "@schematics/angular:module": {
+          "spec": false
+        },
+        "@schematics/angular:pipe": {
+          "spec": false
+        },
+        "@schematics/angular:service": {
+          "spec": false
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/tfl-toolbox/tsconfig.lib.json",
+            "project": "projects/tfl-toolbox/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/tfl-toolbox/ng-package.prod.json"
+            }
+          }
+        }
+      }
+    },
+
+    "tfl-componentes": {
+      "root": "projects/tfl-componentes",
+      "sourceRoot": "projects/tfl-componentes/src",
+      "projectType": "library",
+      "prefix": "tfl",
+      "schematics": {
+        "@schematics/angular:class": {
+          "spec": false
+        },
+        "@schematics/angular:component": {
+          "spec": false
+        },
+        "@schematics/angular:directive": {
+          "spec": false
+        },
+        "@schematics/angular:guard": {
+          "spec": false
+        },
+        "@schematics/angular:module": {
+          "spec": false
+        },
+        "@schematics/angular:pipe": {
+          "spec": false
+        },
+        "@schematics/angular:service": {
+          "spec": false
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/tfl-componentes/tsconfig.lib.json",
+            "project": "projects/tfl-componentes/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/tfl-componentes/ng-package.prod.json"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "tf-base"
+}

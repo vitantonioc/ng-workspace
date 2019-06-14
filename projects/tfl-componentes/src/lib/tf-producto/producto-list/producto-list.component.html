@@ -1,0 +1,9 @@
+<tfl-table
+  [fields]="fields"
+  [items]="prodottoList | async"
+  key="id"
+  description="descrizione"
+  (addItem)="addProdotto()"
+  (editItem)="editProdotto($event)"
+  (deleteItem)="deleteProdotto($event)">
+</tfl-table>

@@ -1,0 +1,44 @@
+name: 'cliente'
+description: 'ragioneSociale'
+key: 'id'
+tableColumns: [ 'id', 'ragioneSociale', 'contatto', 'citta' ]
+addTitle: 'Insertar nuevo cliente'
+updateTitle: 'Update nuevo cliente'
+fields:
+  id:
+    label: 'Id'
+    type: 'number'
+    required: true
+    control: 'text'
+  ragioneSociale:
+    label: 'Razon social'
+    type: 'string'
+    required: true
+    control: 'text'
+  contatto:
+    label: 'Contacto'
+    type: 'string'
+    required: false
+    control: 'text'
+  indirizzo:
+    label: 'Dirección'
+    type: 'string'
+    required: false
+    control: 'text'
+  citta:
+    label: 'Ciudad'
+    type: 'string'
+    required: false
+    control: 'text'
+  nazione:
+    label: 'Nacion'
+    type: 'string'
+    required: false
+    control: 'select'
+    options: "[ 'España', 'Francia', 'Alemania' ]"
+  premium:
+    label: 'Premium'
+    type: 'boolean'
+    required: false
+    control: 'check'
+

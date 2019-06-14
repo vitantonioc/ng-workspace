@@ -1,0 +1,11 @@
+<nav class="navbar navbar-dark bg-primary mb-5 fixed-top">
+  <a class="navbar-brand" href="/index.html">NG7 WORKSPACE</a>
+  <div class="navbar-expand mr-auto">
+    <div class="navbar-nav">
+      <a *ngFor="let route of routes"
+        class="nav-item nav-link"
+        [routerLink]="route.path"
+        routerLinkActive="active">{{route.title}}</a>
+    </div>
+  </div>
+</nav>

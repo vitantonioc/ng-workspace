@@ -1,0 +1,17 @@
+<tfl-form-card [title]="title">
+
+  <form [formGroup]="form">
+
+    <tfl-text label="Razon social" formControlName="ragioneSociale"></tfl-text>
+    <tfl-text label="Contacto" formControlName="contatto"></tfl-text>
+    <tfl-text label="Dirección" formControlName="indirizzo"></tfl-text>
+    <tfl-text label="Ciudad" formControlName="citta"></tfl-text>
+    <tfl-select label="Estado" [options]="['España','Francia','Alemania']" formControlName="nazione"></tfl-select>
+    <tfl-check label="Premium" formControlName="premium"></tfl-check>
+
+    <button type="button" [disabled]="!form.valid" (click)="onSubmit()" class="btn btn-primary">Guarda</button>
+    <button type="button" class="btn btn-outline-primary" (click)="backToList()">Cancela</button>
+
+  </form>
+
+</tfl-form-card>

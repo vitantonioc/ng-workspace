@@ -1,0 +1,26 @@
+<tfl-form-card [title]="title">
+
+  <form [formGroup]="form">
+
+    <tfl-text label="Descripción" formControlName="descrizione"></tfl-text>
+
+
+
+    <tfl-select label="Tipo producto" formControlName="tipologia" [options]="[ 'Alimentares', 'Casa', 'Electronica' ]"></tfl-select>
+
+    <tfl-text label="Precio" formControlName="prezzo"></tfl-text>
+
+
+
+
+    <tfl-check label="Disponible" formControlName="disponibile"></tfl-check>
+
+    <tfl-text label="Fornitore" formControlName="fornitore"></tfl-text>
+
+
+    <button type="button" [disabled]="!form.valid" (click)="onSubmit()" class="btn btn-primary">Guarda</button>
+    <button type="button" class="btn btn-outline-primary" (click)="backToList()">Cancela</button>
+
+  </form>
+
+</tfl-form-card>
