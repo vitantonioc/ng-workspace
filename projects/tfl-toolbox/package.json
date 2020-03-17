@@ -2,7 +2,7 @@
   "name": "@tfl/toolbox",
   "version": "2.0.0",
   "peerDependencies": {
-    "@angular/common": "~8.0",
-    "@angular/core": "~8.0"
+    "@angular/common": "^9.0.5",
+    "@angular/core": "^9.0.5"
   }
 }
